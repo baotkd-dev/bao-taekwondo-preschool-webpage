@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAO Academy — Preschool Taekwondo (Ages 4–6) | Singapore Taekwondo Federation Affiliated</title>
+<meta name="description" content="Preschool Taekwondo for ages 4–6 in Singapore. Confidence, focus and discipline through play. Affiliated with the Singapore Taekwondo Federation. Book a free private trial lesson.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --marigold:#FFC020;
+    --marigold-deep:#F0A500;
+    --ink:#15110A;
+    --ink-soft:#2A2418;
+    --coral:#F26C3A;
+    --cream:#FFF7E6;
+    --white:#FFFFFF;
+    --shadow:rgba(21,17,10,.18);
+    --radius:28px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Fredoka',sans-serif;line-height:1.02;letter-spacing:-.01em}
+  .mono{font-family:'JetBrains Mono',monospace}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+  /* ---------- top nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:60;
+    background:rgba(255,247,230,.86);
+    backdrop-filter:blur(12px);
+    border-bottom:2px solid var(--ink);
+  }
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:'Fredoka';font-weight:700;font-size:1.25rem}
+  .brand .mark{
+    width:38px;height:38px;border-radius:11px;background:var(--ink);color:var(--marigold);
+    display:grid;place-items:center;font-weight:700;font-size:1.1rem;flex-shrink:0;
+  }
+  .nav-logo{height:46px;mix-blend-mode:multiply}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--coral)}
+  .nav-cta{
+    background:var(--ink);color:var(--marigold);padding:11px 20px;border-radius:999px;
+    font-weight:700;font-size:.92rem;text-decoration:none;white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--coral);color:var(--white)}
+  @media(max-width:760px){
+    .nav-links a:not(.nav-cta){display:none}
+    .nav-in{justify-content:center}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;background:var(--marigold);
+    border-bottom:3px solid var(--ink);overflow:hidden;
+  }
+  .blob{position:absolute;background:var(--ink);z-index:1;pointer-events:none}
+  .blob.tl{width:230px;height:200px;top:-60px;left:-50px;border-radius:0 0 60% 50%/0 0 70% 60%}
+  .blob.br{width:280px;height:230px;bottom:-90px;right:-60px;border-radius:60% 50% 0 0/70% 60% 0 0}
+  .dots{position:absolute;z-index:1;opacity:.55;
+    background-image:radial-gradient(var(--ink) 2px,transparent 2px);
+    background-size:18px 18px}
+  .dots.a{width:130px;height:130px;top:120px;right:40px}
+  .dots.b{width:110px;height:90px;bottom:60px;left:30px}
+  .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:30px;
+    align-items:center;padding:60px 0 50px;min-height:600px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--marigold);
+    padding:8px 16px;border-radius:999px;font-weight:700;font-size:.78rem;letter-spacing:.04em;
+    text-transform:uppercase;margin-bottom:22px;
+  }
+  .eyebrow .pulse{width:8px;height:8px;border-radius:50%;background:var(--coral);
+    box-shadow:0 0 0 0 var(--coral);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(242,108,58,.6)}70%{box-shadow:0 0 0 9px rgba(242,108,58,0)}100%{box-shadow:0 0 0 0 rgba(242,108,58,0)}}
+  .hero h1{font-size:clamp(3rem,7vw,5.4rem);font-weight:700;color:var(--ink)}
+  .hero h1 .stroke{color:var(--white);-webkit-text-stroke:2px var(--ink);text-stroke:2px var(--ink)}
+  .hero .age-pill{display:inline-block;background:var(--ink);color:var(--marigold);
+    font-family:'Fredoka';font-weight:600;font-size:1.05rem;padding:9px 22px;border-radius:999px;margin-top:18px}
+  .hero p.lead{font-size:1.12rem;color:var(--ink-soft);max-width:430px;margin:24px 0 30px;font-weight:500}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{font-family:'Plus Jakarta Sans';font-weight:700;font-size:1rem;padding:15px 28px;
+    border-radius:999px;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;display:inline-flex;align-items:center;gap:9px}
+  .btn-primary{background:var(--ink);color:var(--marigold)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px var(--shadow)}
+  .btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--marigold)}
+
+  /* hero photo cluster */
+  .hero-art{position:relative;height:520px}
+  .circle{position:absolute;border-radius:50%;border:6px solid var(--coral);overflow:hidden;
+    box-shadow:0 14px 36px var(--shadow);background:var(--ink-soft)}
+  .circle img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.18)}
+  .circle.c2 img{object-position:center top;transform:scale(1.35);transform-origin:50% 18%}
+  .circle.c1{width:230px;height:230px;top:20px;left:0;z-index:3}
+  .circle.c2{width:195px;height:195px;bottom:50px;left:40px;z-index:2;border-color:var(--white)}
+  .coach-card{position:absolute;bottom:0;right:0;z-index:4;background:var(--ink);color:var(--white);
+    border-radius:18px;padding:16px 20px;max-width:230px;box-shadow:0 14px 36px var(--shadow);
+    text-decoration:none;cursor:pointer;display:block;transition:transform .15s}
+  .coach-card .name{font-family:'Fredoka';font-weight:600;font-size:1.15rem;color:var(--marigold)}
+  .coach-card .creds{font-size:.72rem;color:#D8D2C4;margin-top:4px;line-height:1.4}
+  .hero-photo{position:absolute;top:10px;right:0;width:300px;height:470px;z-index:2;
+    border-radius:24px;overflow:hidden;border:3px solid var(--coral);box-shadow:0 14px 36px var(--shadow)}
+  .hero-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(1.08)}
+  @media(max-width:900px){
+    .hero-in{grid-template-columns:1fr;padding:44px 0 60px;min-height:0}
+    .hero-art{height:400px;margin-top:10px}
+    .hero-photo{display:none}
+  }
+
+  /* ---------- mobile hero (phones ≤640px) ---------- */
+  @media(max-width:640px){
+    /* Ensure PRESCHOOL shows */
+    .blob.tl{display:none}
+    .hero-copy{position:relative;z-index:3;text-align:center}
+    .hero h1{font-size:clamp(2.2rem,9vw,3rem);line-height:1.05}
+    .hero p.lead{font-size:.96rem;margin:16px 0 20px;max-width:100%}
+    .hero-actions{justify-content:center}
+    .eyebrow{display:inline-flex}
+    .hero-in{padding:36px 0 24px}
+
+    /* Hero-art: clean column — photo then coach card */
+    .hero-art{
+      height:auto;
+      margin-top:24px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    /* Show Master Bao's headshot full-width */
+    .hero-photo{
+      display:block;
+      position:relative;
+      top:auto;right:auto;
+      width:100%;
+      height:320px;
+      border-radius:20px;
+    }
+
+    /* Hide the small circles — too cluttered at phone width */
+    .circle.c1,.circle.c2{display:none}
+
+    /* Coach card full-width below the photo */
+    .coach-card{
+      position:relative;
+      bottom:auto;right:auto;
+      width:100%;
+      max-width:100%;
+      border-radius:14px;
+    }
+
+    .dots.a{display:none}
+  }
+
+  /* ---------- STF affiliation strip ---------- */
+  .stf-strip{background:var(--ink);color:var(--cream);padding:22px 0}
+  .stf-in{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;text-align:center}
+  .stf-in .badge{width:46px;height:46px;border-radius:50%;border:2px solid var(--marigold);
+    display:grid;place-items:center;font-family:'Fredoka';font-weight:700;color:var(--marigold);flex-shrink:0}
+  .stf-in p{font-size:.98rem;font-weight:500;color:#E8E2D4}
+  .stf-in strong{color:var(--marigold);font-weight:700}
+
+  /* ---------- section shell ---------- */
+  section{padding:84px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 52px}
+  .label{font-family:'JetBrains Mono';font-weight:700;font-size:.78rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--coral);margin-bottom:14px}
+  .sec-head h2{font-size:clamp(2rem,4.4vw,3rem);font-weight:700}
+  .sec-head p{margin-top:16px;font-size:1.08rem;color:var(--ink-soft)}
+
+  /* ---------- benefits ---------- */
+  .benefits{background:var(--white)}
+  .b-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .b-card{background:var(--cream);border:2px solid var(--ink);border-radius:var(--radius);
+    padding:30px 26px;transition:transform .18s,box-shadow .18s}
+  .b-card:hover{transform:translateY(-5px);box-shadow:8px 8px 0 var(--ink)}
+  .b-ico{width:58px;height:58px;border-radius:16px;background:var(--marigold);border:2px solid var(--ink);
+    display:grid;place-items:center;margin-bottom:18px;font-size:1.7rem}
+  .b-card h3{font-size:1.3rem;font-weight:600;margin-bottom:9px}
+  .b-card p{color:var(--ink-soft);font-size:.97rem}
+  @media(max-width:860px){.b-grid{grid-template-columns:1fr}}
+
+  /* ---------- media gallery ---------- */
+  .gallery{background:var(--marigold);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+  .gallery .sec-head h2{color:var(--ink)}
+  .gallery .label{color:var(--ink-soft)}
+  .g-grid{display:grid;grid-template-columns:2fr 1fr;gap:16px;height:520px}
+  .g-item{border-radius:20px;overflow:hidden;border:3px solid var(--ink);position:relative;background:var(--ink-soft)}
+  .g-item video{width:100%;height:100%;object-fit:cover;display:block}
+  .sound-btn{
+    position:absolute;bottom:14px;right:14px;z-index:5;
+    background:rgba(21,17,10,.78);color:var(--marigold);
+    border:2px solid rgba(255,192,32,.35);border-radius:999px;
+    padding:7px 16px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.8rem;
+    cursor:pointer;letter-spacing:.03em;transition:background .15s;
+  }
+  .sound-btn:hover{background:rgba(21,17,10,.95)}
+  @media(max-width:760px){.g-grid{grid-template-columns:1fr;height:auto}.g-item{height:56vw}.g-item.portrait{height:80vw}}
+
+  /* ---------- how it works ---------- */
+  .steps{background:var(--white)}
+  .s-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:step}
+  .s-card{position:relative;padding:34px 26px 26px;border-radius:var(--radius);background:var(--cream);
+    border:2px solid var(--ink)}
+  .s-num{position:absolute;top:-22px;left:26px;width:46px;height:46px;border-radius:14px;background:var(--coral);
+    color:var(--white);border:2px solid var(--ink);font-family:'Fredoka';font-weight:700;font-size:1.4rem;
+    display:grid;place-items:center}
+  .s-card h3{font-size:1.25rem;font-weight:600;margin:8px 0 8px}
+  .s-card p{color:var(--ink-soft);font-size:.96rem}
+  @media(max-width:860px){.s-grid{grid-template-columns:1fr;gap:40px}}
+
+  /* ---------- coach feature ---------- */
+  .coach{background:var(--cream)}
+  .coach-in{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
+  .coach-photo{aspect-ratio:4/5;border-radius:var(--radius);border:3px solid var(--ink);overflow:hidden}
+  .coach-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+  .coach-body .label{text-align:left}
+  .coach-body h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:700;margin-bottom:18px}
+  .coach-body p{color:var(--ink-soft);font-size:1.05rem;margin-bottom:18px}
+  .creds-list{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+  .cred{display:flex;align-items:center;gap:14px;background:var(--white);border:2px solid var(--ink);
+    border-radius:14px;padding:13px 18px}
+  .cred .tick{width:30px;height:30px;border-radius:50%;background:var(--marigold);border:2px solid var(--ink);
+    display:grid;place-items:center;font-weight:700;flex-shrink:0}
+  .cred span.mono{font-size:.92rem;font-weight:500}
+  @media(max-width:860px){.coach-in{grid-template-columns:1fr;gap:30px}}
+
+  /* ---------- trial booking form ---------- */
+  .trial{background:var(--ink);color:var(--cream)}
+  .trial .sec-head h2{color:var(--white)}
+  .trial .label{color:var(--marigold)}
+  .trial .sec-head p{color:#C9C2B2}
+  .form-wrap{max-width:680px;margin:0 auto;background:var(--cream);color:var(--ink);
+    border-radius:var(--radius);padding:40px;border:3px solid var(--marigold)}
+  .free-tag{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:var(--white);
+    font-weight:700;font-size:.82rem;padding:6px 14px;border-radius:999px;margin-bottom:20px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .field{margin-bottom:16px}
+  .field.full{grid-column:1/-1}
+  .field label{display:block;font-weight:600;font-size:.88rem;margin-bottom:6px}
+  .field input,.field select,.field textarea{width:100%;padding:13px 15px;border:2px solid var(--ink);
+    border-radius:12px;font-family:inherit;font-size:.98rem;background:var(--white);color:var(--ink)}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:3px solid var(--marigold);outline-offset:1px}
+  .form-submit{width:100%;margin-top:8px}
+  .form-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+  .form-note{text-align:center;font-size:.82rem;color:var(--ink-soft);margin-top:14px}
+  .success{display:none;text-align:center;padding:20px 0}
+  .success.show{display:block}
+  .success .big{font-family:'Fredoka';font-weight:700;font-size:1.6rem;color:var(--coral);margin-bottom:8px}
+  .form-error{display:none;background:#fff0ed;border:2px solid var(--coral);border-radius:12px;
+    padding:14px 18px;margin-top:16px;color:#a33;font-size:.9rem;font-weight:500}
+  .form-error.show{display:block}
+  @media(max-width:560px){.form-row{grid-template-columns:1fr}.form-wrap{padding:28px 22px}}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--white)}
+  .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+  .faq-item{border:2px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--cream)}
+  .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:20px 24px;
+    font-family:'Fredoka';font-weight:600;font-size:1.1rem;color:var(--ink);display:flex;
+    justify-content:space-between;align-items:center;gap:16px}
+  .faq-q .chev{font-size:1.3rem;transition:transform .2s;color:var(--coral)}
+  .faq-item.open .chev{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 24px}
+  .faq-item.open .faq-a{max-height:300px;padding-bottom:20px}
+  .faq-a p{color:var(--ink-soft)}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:#C9C2B2;padding:54px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:36px}
+  .foot-grid .brand{color:var(--white);margin-bottom:14px}
+  .foot-grid p{font-size:.92rem;line-height:1.7}
+  .foot-col h4{font-family:'Fredoka';color:var(--marigold);font-size:1.05rem;margin-bottom:14px;font-weight:600}
+  .foot-col a{display:block;text-decoration:none;font-size:.92rem;margin-bottom:9px}
+  .foot-col a:hover{color:var(--marigold)}
+  .foot-bottom{border-top:1px solid #3a3422;padding-top:22px;display:flex;justify-content:space-between;
+    flex-wrap:wrap;gap:12px;font-size:.82rem}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:26px}}
+
+  /* ---------- sticky mobile CTA ---------- */
+  .sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:55;background:var(--ink);
+    padding:12px 18px;display:none;align-items:center;justify-content:space-between;gap:12px;
+    border-top:2px solid var(--marigold)}
+  .sticky-cta p{color:var(--cream);font-weight:700;font-size:.9rem}
+  .sticky-cta a{background:var(--marigold);color:var(--ink);font-weight:700;padding:11px 20px;
+    border-radius:999px;text-decoration:none;font-size:.9rem;white-space:nowrap}
+  @media(max-width:760px){.sticky-cta{display:flex}body{padding-bottom:68px}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand"><img src="media/logo-icon.png" alt="BAO Taekwondo" class="nav-logo"></div>
+    <div class="nav-links">
+      <a href="#benefits">Why Taekwondo</a>
+      <a href="#gallery">Classes</a>
+      <a href="#coach">Master Bao</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="blob tl"></span><span class="blob br"></span>
+  <span class="dots a"></span><span class="dots b"></span>
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="pulse"></span>Singapore Taekwondo Federation Affiliated</span>
+      <h1>PRESCHOOL<br><span class="stroke">TAEKWONDO</span></h1>
+      <span class="age-pill">For Ages 4 – 6 Years</span>
+      <p class="lead">Where little white belts learn big-kid focus, confidence and respect — through play, not pressure. Led by certified STF coaches in a safe, joyful dojang.</p>
+      <div class="hero-actions">
+<a href="#gallery" class="btn btn-ghost">Watch a Class</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-photo">
+        <img src="media/Photo 4.png" alt="Master Bao coaching a young student one-on-one">
+      </div>
+      <div class="circle c1">
+        <img src="media/Photo 1.png" alt="Happy preschool students in taekwondo class">
+      </div>
+      <div class="circle c2">
+        <img src="media/Photo 5.png" alt="Joyful young student in taekwondo training">
+      </div>
+      <a href="#coach" class="coach-card">
+        <div class="name">Master Bao</div>
+        <div class="creds">KTMA Head Coach · STF Kyorugi Coach Level 2 · STF Class 2 Referee · MOE Certified</div>
+      </a>
+    </div>
+  </div>
+</header>
+
+
+<!-- BENEFITS -->
+<section class="benefits" id="benefits">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Why preschoolers thrive in Taekwondo</div>
+      <h2>More than kicks. It's a head start for life.</h2>
+      <p>The 4–6 window is when focus, coordination and self-control take root. Our preschool program is built around exactly that — wrapped in games your child will beg to come back to.</p>
+    </div>
+    <div class="b-grid">
+      <div class="b-card"><div class="b-ico">🎯</div><h3>Focus &amp; Attention</h3><p>Following sequences and listening for commands gently stretches your child's attention span — skills that carry straight into the classroom.</p></div>
+      <div class="b-card"><div class="b-ico">💪</div><h3>Confidence That Sticks</h3><p>Every belt, every "yes I can!" builds real self-belief. Shy kids find their voice; energetic kids find their focus.</p></div>
+      <div class="b-card"><div class="b-ico">🤸</div><h3>Coordination &amp; Motor Skills</h3><p>Balance, agility and body awareness develop fast through age-appropriate kicking, hopping and partner games.</p></div>
+      <div class="b-card"><div class="b-ico">🙇</div><h3>Respect &amp; Discipline</h3><p>Bowing, taking turns and listening to coaches teaches respect and self-control in a way that feels natural, not forced.</p></div>
+      <div class="b-card"><div class="b-ico">🛡️</div><h3>Safe, Structured Play</h3><p>Small groups, certified coaches and a soft-matted dojang mean your child explores movement safely, every single class.</p></div>
+      <div class="b-card"><div class="b-ico">🌟</div><h3>A Clear Belt Pathway</h3><p>STF-aligned grading gives little ones real goals to chase — and a proud moment for the whole family at every belt-up.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">See the joy in action</div>
+      <h2>Inside our preschool classes</h2>
+      <p>Real smiles, real focus, real progress. Have a look at what a BAO Academy class feels like.</p>
+    </div>
+    <div class="g-grid" id="galleryGrid">
+      <div class="g-item">
+        <video autoplay muted loop playsinline>
+          <source src="media/video-landscape.m4v" type="video/mp4">
+        </video>
+        <button class="sound-btn" aria-label="Toggle sound">🔇 Muted</button>
+      </div>
+      <div class="g-item portrait">
+        <video autoplay muted loop playsinline>
+          <source src="media/video-portrait.m4v" type="video/mp4">
+        </video>
+        <button class="sound-btn" aria-label="Toggle sound">🔇 Muted</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="steps">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">From curious to confident in 3 steps</div>
+      <h2>Starting is easy</h2>
+    </div>
+    <div class="s-grid">
+      <div class="s-card"><div class="s-num">1</div><h3>Let the teacher know</h3><p>Inform your child's teacher-in-charge that you're interested in joining the school Taekwondo preschool program.</p></div>
+      <div class="s-card"><div class="s-num">2</div><h3>Come try a class</h3><p>Join a Taekwondo class for a trial so your child can experience it first-hand.</p></div>
+      <div class="s-card"><div class="s-num">3</div><h3>Lock in a weekly slot</h3><p>If it's a fit, we'll slot your child into a regular weekly class.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COACH -->
+<section class="coach" id="coach">
+  <div class="wrap coach-in">
+    <div class="coach-photo">
+      <img src="media/Master Bao-2.png" alt="Master Bao coaching a student at the Daedo Open Championships">
+    </div>
+    <div class="coach-body">
+      <div class="label">Meet your coach</div>
+      <h2>Master Bao</h2>
+      <p>Patient, energetic and trusted by parents, Master Bao specialises in making the very first Taekwondo experience a joyful one. He knows how to hold a four-year-old's attention — and how to turn wobbly first kicks into proud little victories.</p>
+      <p>As an STF-certified coach and referee, he brings national-standard technique to every class while keeping the dojang fun, warm and safe.</p>
+      <div class="creds-list">
+        <div class="cred"><span class="tick">✓</span><span class="mono">KTMA Head Coach</span></div>
+        <div class="cred"><span class="tick">✓</span><span class="mono">STF Kyorugi Coach — Level 2</span></div>
+        <div class="cred"><span class="tick">✓</span><span class="mono">STF Class 2 Referee</span></div>
+        <div class="cred"><span class="tick">✓</span><span class="mono">MOE Certified</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIAL FORM -->
+<section class="trial" id="trial">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Ready to go further?</div>
+      <h2>Want to take Taekwondo further?</h2>
+      <p>Already loving the preschool program, or see real spark in your child? A private lesson with Master Bao is where keen young athletes build toward competitive sparring, belt gradings and STF events. One-on-one, no pressure — just room to grow.</p>
+    </div>
+    <div class="form-wrap">
+      <span class="free-tag">★ Private lesson with Master Bao</span>
+      <form id="trialForm">
+        <input type="hidden" name="_subject" value="New Trial Request — BAO Academy Preschool">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <div class="form-row">
+          <div class="field"><label for="parent">Parent's name</label><input id="parent" name="parent" required></div>
+          <div class="field"><label for="phone">Mobile / WhatsApp</label><input id="phone" name="phone" type="tel" required></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="child">Child's name</label><input id="child" name="child" required></div>
+          <div class="field"><label for="age">Child's age</label>
+            <select id="age" name="age" required>
+              <option value="">Select…</option>
+              <option>4 years</option><option>5 years</option><option>6 years</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+          <div class="field"><label for="pref">Preferred day/time</label>
+            <select id="pref" name="pref">
+              <option value="">No preference</option>
+              <option>Weekday morning</option><option>Weekday afternoon</option>
+              <option>Weekend morning</option><option>Weekend afternoon</option>
+            </select>
+          </div>
+        </div>
+        <div class="field full"><label for="notes">Anything we should know? (optional)</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="e.g. my child is a little shy, any prior experience…"></textarea></div>
+        <button type="submit" class="btn btn-primary form-submit">Request My Free Trial →</button>
+        <p class="form-note">We'll reply within 24 hours to confirm your slot.</p>
+        <div class="form-error" id="errorMsg">
+          Something went wrong sending your request. Please try again — or WhatsApp us directly if this keeps happening.
+        </div>
+      </form>
+      <div class="success" id="successMsg">
+        <div class="big">🥋 Trial requested!</div>
+        <p>Thank you — we've received your request and will WhatsApp you within 24 hours to lock in a time. See you on the mat!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">Parents often ask</div>
+      <h2>Questions, answered</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">Is my 4-year-old too young to start? <span class="chev">+</span></button><div class="faq-a"><p>Not at all. Ages 4–6 is the ideal window — our program is purpose-built for short attention spans and big imaginations, using games and stories to teach real Taekwondo fundamentals.</p></div></div>
+      <div class="faq-item"><button class="faq-q">What should my child wear to the trial? <span class="chev">+</span></button><div class="faq-a"><p>Comfortable sports clothes and bare feet are perfect. No uniform needed for the trial — we'll sort that out if you decide to join.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Is it safe for little ones? <span class="chev">+</span></button><div class="faq-a"><p>Yes. Classes run on soft matting in small groups, with certified STF coaches supervising every movement. Safety and fun come first, always.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Can I watch the class? <span class="chev">+</span></button><div class="faq-a"><p>Absolutely. We encourage parents to watch, especially at the trial — seeing your child's confidence grow is half the joy.</p></div></div>
+      <div class="faq-item"><button class="faq-q">What is the Singapore Taekwondo Federation affiliation? <span class="chev">+</span></button><div class="faq-a"><p>It means our coaching and belt-grading follow nationally recognised STF standards — so your child's progress is credible and follows a clear, structured pathway.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand"><span class="mark">B</span>BAO Academy</div>
+        <p>Preschool Taekwondo for ages 4–6. Building confident, focused, respectful little ones — one belt at a time. Affiliated with the Singapore Taekwondo Federation.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="#benefits">Why Taekwondo</a>
+        <a href="#gallery">Our Classes</a>
+        <a href="#coach">Master Bao</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h4>Get in touch</h4>
+        <a href="#trial">Book a Free Trial</a>
+        <a href="#">WhatsApp us</a>
+        <a href="#">Email us</a>
+        <a href="#">Find our dojang</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 BAO Academy. All rights reserved.</span>
+      <span>Singapore Taekwondo Federation Affiliated</span>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta">
+  <p>Free private trial 🥋</p>
+  <a href="#trial">Book now</a>
+</div>
+
+<script>
+  // Gallery sound toggles
+  document.querySelectorAll('.sound-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const video = btn.previousElementSibling;
+      video.muted = !video.muted;
+      btn.textContent = video.muted ? '🔇 Muted' : '🔊 Sound on';
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click',()=>{
+      const item=q.closest('.faq-item');
+      const open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+      if(!open)item.classList.add('open');
+    });
+  });
+
+  // Trial form — submits to Formsubmit.co, emails baotkdacademy@gmail.com
+  document.getElementById('trialForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = this;
+    const btn = form.querySelector('.form-submit');
+    const errMsg = document.getElementById('errorMsg');
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    errMsg.classList.remove('show');
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/baotkdacademy@gmail.com', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('successMsg').classList.add('show');
+      } else {
+        throw new Error('non-ok response');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Request My Free Trial →';
+      errMsg.classList.add('show');
+    }
+  });
+</script>
+</body>
+</html>
