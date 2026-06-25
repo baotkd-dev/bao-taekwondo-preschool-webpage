@@ -546,6 +546,19 @@
     });
   });
 
+  // Force autoplay on mobile via IntersectionObserver
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const v = entry.target;
+      if (entry.isIntersecting) {
+        v.play().catch(() => {});
+      } else {
+        v.pause();
+      }
+    });
+  }, { threshold: 0.25 });
+  document.querySelectorAll('video').forEach(v => videoObserver.observe(v));
+
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(q=>{
     q.addEventListener('click',()=>{
